@@ -17,8 +17,24 @@ public class SkillBuilder5
      */
     public static double[] prefixAverage(double[] data)
     {
-        //TODO: replace this line with your code.
-        return null;
+        double[] p = new double[data.length];
+        double value = 0;
+        double prefixValue;
+
+        for (int i = 0; i < data.length; i++) {
+            value += data[i];
+
+            if (i > 0) {
+                prefixValue = value/(i+1);
+            } else {
+                prefixValue = value;
+            }
+
+//            p[i] = Math.floor(prefixValue * 100)/100;
+            p[i] = prefixValue;
+        }
+
+        return p;
     }
 
     /**
