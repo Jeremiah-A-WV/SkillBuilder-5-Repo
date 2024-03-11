@@ -5,8 +5,20 @@
  * @author (you)
  * @version (a version number or a date)
  */
+
 public class SkillBuilder5
 {
+
+    public static void main(String[] args) {
+        int[] a = {88,15,34,8,34,89,55,12};
+
+        reverse(a);
+
+        for (int i: a) {
+            System.out.println(i);
+        }
+    }
+
     /**
      * Calculates the prefix average of array data and returns the prefex average
      * in a new array.  The parameter data is never touched and left intact.
@@ -15,6 +27,7 @@ public class SkillBuilder5
      * @return returns an array containing the prefix average values calculated
      *         from data.
      */
+
     public static double[] prefixAverage(double[] data)
     {
         double[] p = new double[data.length];
@@ -47,8 +60,18 @@ public class SkillBuilder5
      */
     public static int  indexOf(int searchValue, int[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        int result;
+
+        for (int i = 0; i < anArray.length; i++) {
+            if (searchValue == anArray[i]) {
+                result = i;
+                return result;
+            }
+        }
+
+        result = -1;
+
+        return result;
     }
 
     /**
@@ -61,8 +84,18 @@ public class SkillBuilder5
      */
     public static int  indexOf(String s, String[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        int result;
+
+        for (int i = 0; i < anArray.length; i++) {
+            if (s.equals(anArray[i])) {
+                result = i;
+                return result;
+            }
+        }
+
+        result = -1;
+
+        return result;
     }
 
     /**
@@ -74,8 +107,26 @@ public class SkillBuilder5
      */
     public static String[] remove(String s, String[] anArray)
     {
-        // add your code here
-        return null;
+        int count = 0;
+        int index = 0;
+
+        for (int i = 0; i < anArray.length; i++) {
+            if (anArray[i].equals(s)) {
+                anArray[i] = null;
+                count++;
+            }
+        }
+
+        String[] result = new String[anArray.length - count];
+
+        for (String string : anArray) {
+            if (!(string == null)) {
+                result[index] = string;
+                index++;
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -84,6 +135,10 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
-        // add your code here
+        int[] temp = anArray.clone();
+
+        for (int i = 0; i < anArray.length; i++) {
+            anArray[i] = temp[(anArray.length - 1) - i];
+        }
     }
 }
